@@ -1,10 +1,11 @@
+
 using {
     cuid,
     managed
 } from '@sap/cds/common';
 
 namespace db;
-
+@odata.draft.enabled
 entity Livros : cuid, managed {
     titulo           : String;
     autor            : Association to Autores;

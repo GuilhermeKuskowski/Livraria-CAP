@@ -5,8 +5,13 @@ annotate service.Livros with @(
         Data : [
             {
                 $Type : 'UI.DataField',
-                Value : status_codigo,
-                Criticality : status.criticidade,
+                Value : titulo,
+                Label : 'Título',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : genero,
+                Label : 'Gênero',
             },
             {
                 $Type : 'UI.DataField',
@@ -15,13 +20,18 @@ annotate service.Livros with @(
             },
             {
                 $Type : 'UI.DataField',
+                Value : pagina,
+                Label : 'Páginas',
+            },
+            {
+                $Type : 'UI.DataField',
                 Label : 'Preço',
                 Value : preco,
             },
             {
                 $Type : 'UI.DataField',
-                Value : pagina,
-                Label : 'Páginas',
+                Value : status_codigo,
+                Criticality : status.criticidade,
             },
         ],
     },
