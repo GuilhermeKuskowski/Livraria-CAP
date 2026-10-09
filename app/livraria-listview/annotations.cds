@@ -5,6 +5,11 @@ annotate service.Livros with @(
         Data : [
             {
                 $Type : 'UI.DataField',
+                Value : status_codigo,
+                Criticality : status.criticidade,
+            },
+            {
+                $Type : 'UI.DataField',
                 Label : 'Data de Publicação',
                 Value : dataDePublicacao,
             },
@@ -43,6 +48,13 @@ annotate service.Livros with @(
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
+            Value : status_codigo,
+            Label : 'Status',
+            Criticality : status.criticidade,
+            CriticalityRepresentation : #WithIcon,
+        },
+        {
+            $Type : 'UI.DataField',
             Label : 'Título',
             Value : titulo,
         },
@@ -59,7 +71,7 @@ annotate service.Livros with @(
         {
             $Type : 'UI.DataField',
             Value : pagina,
-            Label : 'pagina',
+            Label : 'Páginas',
         },
         {
             $Type : 'UI.DataField',
@@ -71,9 +83,14 @@ annotate service.Livros with @(
             Value : autor.nome,
             Label : 'Nome do Autor',
         },
+        {
+            $Type : 'UI.DataField',
+            Value : estoque,
+            Label : 'Estoque',
+        },
     ],
     UI.SelectionFields : [
-        preco,
+        status_codigo,
     ],
     UI.HeaderInfo : {
         TypeName : 'Livro',
@@ -112,6 +129,19 @@ annotate service.Livros with @(
     UI.FieldGroup #Captulos : {
         $Type : 'UI.FieldGroupType',
         Data : [
+        ],
+    },
+    UI.HeaderFacets : [
+        
+    ],
+    UI.FieldGroup #Header : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : status_codigo,
+                Criticality : status.criticidade,
+            },
         ],
     },
 );
@@ -157,4 +187,34 @@ annotate service.Capitulos with @(
         },
     ]
 );
+
+annotate service.Livros with {
+    status @(
+        Common.Text : status.textoDeExibicao,
+        Common.Text.@UI.TextArrangement : #TextOnly,
+        Common.Label : 'Status',
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'LivroStatus',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : status_codigo,
+                    ValueListProperty : 'codigo',
+                },
+            ],
+        },
+        Common.ValueListWithFixedValues : true,
+    )
+};
+
+annotate service.LivroStatus with {
+    criticidade @Common.Label : 'status/criticidade'
+};
+
+annotate service.LivroStatus with {
+    codigo @(
+        Common.Text : textoDeExibicao,
+        Common.Text.@UI.TextArrangement : #TextOnly,
+)};
 
