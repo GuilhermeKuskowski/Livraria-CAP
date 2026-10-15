@@ -10,7 +10,7 @@ namespace db;
 entity Livros : cuid, managed {
     titulo           : String;
     autor            : Association to Autores;
-    genero           : String;
+    genero           : Association to Generos;
     dataDePublicacao : Date;
     pagina           : Integer;
     preco            : Decimal(9, 2);
@@ -21,6 +21,20 @@ entity Livros : cuid, managed {
                            on Capitulos.livro = $self;
 }
 
+entity Generos {
+    key codigo : Genero;
+    descricao : String;
+}
+
+type Genero : String enum {
+     Romance   = 'Romance';
+    Ficcao    = 'Ficcao';
+    Aventura  = 'Aventura';
+    Drama     = 'Drama';
+    Infantil  = 'Infantil';
+    Poesia    = 'Poesia';
+    Comedia   = 'Comedia';
+}
 entity LivroStatus {
     key codigo          : String(1) enum {
             Disponível = 'D';

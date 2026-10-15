@@ -1,4 +1,4 @@
-ID,titulo,autor_ID,genero,dataDePublicacao,pagina,preco,moeda_code,estoque,status_codigo,createdAt,createdBy,modifiedAt,modifiedBy
+ID,titulo,autor_ID,genero_codigo,dataDePublicacao,pagina,preco,moeda_code,estoque,status_codigo,createdAt,createdBy,modifiedAt,modifiedBy
 b1111111-1111-1111-1111-111111111111,Dom Casmurro,11111111-1111-1111-1111-111111111111,Romance,1899-01-01,256,39.90,BRL,25,D,2026-01-01T10:00:00Z,admin,2026-01-01T10:00:00Z,admin
 b2222222-2222-2222-2222-222222222222,A Hora da Estrela,22222222-2222-2222-2222-222222222222,Ficcao,1977-01-01,96,29.90,BRL,8,L,2026-01-01T10:00:00Z,admin,2026-01-01T10:00:00Z,admin
 b3333333-3333-3333-3333-333333333333,O Alquimista,33333333-3333-3333-3333-333333333333,Aventura,1988-01-01,208,49.90,BRL,45,D,2026-01-01T10:00:00Z,admin,2026-01-01T10:00:00Z,admin

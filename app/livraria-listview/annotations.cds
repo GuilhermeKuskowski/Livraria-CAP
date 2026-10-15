@@ -10,7 +10,7 @@ annotate service.Livros with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : genero,
+                Value : genero_codigo,
                 Label : 'Gênero',
             },
             {
@@ -76,7 +76,7 @@ annotate service.Livros with @(
         {
             $Type : 'UI.DataField',
             Label : 'Gênero',
-            Value : genero,
+            Value : genero_codigo,
         },
         {
             $Type : 'UI.DataField',
@@ -116,7 +116,7 @@ annotate service.Livros with @(
         },
         Description : {
             $Type : 'UI.DataField',
-            Value : genero,
+            Value : genero_codigo,
         },
         TypeImageUrl : 'sap-icon://course-book',
     },
@@ -235,5 +235,25 @@ annotate service.LivroStatus with {
 
 annotate service.Livros with {
     moeda @Common.ValueListWithFixedValues : true
+};
+
+annotate service.Livros with {
+    genero @(
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'GenerosVH',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : genero_codigo,
+                    ValueListProperty : 'codigo',
+                },
+            ],
+        },
+        Common.ValueListWithFixedValues : true,
+)};
+
+annotate service.GenerosVH with {
+    codigo @Common.Text : descricao
 };
 
