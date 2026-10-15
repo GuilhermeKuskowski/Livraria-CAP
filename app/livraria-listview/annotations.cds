@@ -33,6 +33,11 @@ annotate service.Livros with @(
                 Value : status_codigo,
                 Criticality : status.criticidade,
             },
+            {
+                $Type : 'UI.DataField',
+                Value : moeda_code,
+                Label : 'Moeda',
+            },
         ],
     },
     UI.Facets : [
@@ -227,4 +232,8 @@ annotate service.LivroStatus with {
         Common.Text : textoDeExibicao,
         Common.Text.@UI.TextArrangement : #TextOnly,
 )};
+
+annotate service.Livros with {
+    moeda @Common.ValueListWithFixedValues : true
+};
 

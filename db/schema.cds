@@ -1,7 +1,8 @@
 
 using {
     cuid,
-    managed
+    managed,
+    sap.common.Currencies
 } from '@sap/cds/common';
 
 namespace db;
@@ -13,6 +14,7 @@ entity Livros : cuid, managed {
     dataDePublicacao : Date;
     pagina           : Integer;
     preco            : Decimal(9, 2);
+    moeda : Association to Currencies;
     estoque          : Integer;
     status           : Association to LivroStatus;
     Capitulos        : Composition of many Capitulos
