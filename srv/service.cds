@@ -3,8 +3,10 @@ using {db} from '../db/schema';
 service ServicoLivraria {
     entity Livros      as projection on db.Livros
         actions {
+            @Common.SideEffects : {TargetProperties: ['estoque']  }
             action addEstoque();
             action alterarDataDePublicacao(novaData: Date);
+            @Common.SideEffects : {TargetProperties: ['status_codigo']  }
             action alterarStatus( @(Common: {
                                       ValueListWithFixedValues: true,
                                       Label : 'Novo Status',
