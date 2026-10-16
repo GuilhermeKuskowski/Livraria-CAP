@@ -38,6 +38,11 @@ annotate service.Livros with @(
                 Value : moeda_code,
                 Label : 'Moeda',
             },
+            {
+                $Type : 'UI.DataField',
+                Value : estoque,
+                Label : 'Estoque',
+            },
         ],
     },
     UI.Facets : [
@@ -103,6 +108,21 @@ annotate service.Livros with @(
             Value : estoque,
             Label : 'Estoque',
         },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'ServicoLivraria.addEstoque',
+            Label : 'Adicionar ao Estoque',
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'ServicoLivraria.alterarDataDePublicacao',
+            Label : 'Alterar Data de Publicação',
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'ServicoLivraria.alterarStatus',
+            Label : 'Alterar Status',
+        },
     ],
     UI.SelectionFields : [
         status_codigo,
@@ -159,6 +179,23 @@ annotate service.Livros with @(
             },
         ],
     },
+    UI.Identification : [
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'ServicoLivraria.addEstoque',
+            Label : 'Adicionar ao Estoque',
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'ServicoLivraria.alterarDataDePublicacao',
+            Label : 'Alterar Data de Publicação',
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'ServicoLivraria.alterarStatus',
+            Label : 'Alterar Status',
+        },
+    ],
 );
 
 annotate service.Livros with {
