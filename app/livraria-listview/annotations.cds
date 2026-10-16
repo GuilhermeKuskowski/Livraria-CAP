@@ -123,6 +123,11 @@ annotate service.Livros with @(
             Action : 'ServicoLivraria.alterarStatus',
             Label : 'Alterar Status',
         },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'ServicoLivraria.EntityContainer/addDesconto',
+            Label : '10% Desconto',
+        },
     ],
     UI.SelectionFields : [
         status_codigo,
