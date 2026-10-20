@@ -18,6 +18,16 @@
     "watch-autores-listview": "cds watch --open autoreslistview/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "private": true,
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "db.sqlite"
+        }
+      }
+    }
+  },
   "workspaces": [
     "app/*"
   ],
