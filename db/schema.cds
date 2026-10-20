@@ -3,7 +3,8 @@ using {
     managed,
     sap.common.Currencies
 } from '@sap/cds/common';
-using { Attachments } from '@cap-js/attachments';
+using {Attachments} from '@cap-js/attachments';
+
 namespace db;
 
 @odata.draft.enabled
@@ -48,15 +49,16 @@ entity LivroStatus {
 
 @odata.draft.enabled
 entity Autores : cuid, managed {
-    nome          : String;
-    nomeDoArquivo : String;
-    tipoDoArquivo : String      @Core.IsMediaType;
-    conteudo      : LargeBinary @Core.MediaType                  : tipoDoArquivo
-                                @Core.AcceptableMediaTypes : ['application/pdf']
-                                @Core.ContentDisposition.Filename: nomeDoArquivo;
-    attachments : Composition of many Attachments;                           
-    livros        : Association to many Livros
-                        on livros.autor = $self;
+    nome                       : String;
+    nomeDoArquivo              : String;
+    tipoDoArquivo              : String      @Core.IsMediaType;
+    conteudo                   : LargeBinary @Core.MediaType                  : tipoDoArquivo
+                                             @Core.AcceptableMediaTypes       : ['application/pdf']
+                                             @Core.ContentDisposition.Filename: nomeDoArquivo;
+    virtual quantidadeDeLivro : Integer;
+    attachments                : Composition of many Attachments;
+    livros                     : Association to many Livros
+                                     on livros.autor = $self;
 }
 
 entity Capitulos : cuid, managed {
