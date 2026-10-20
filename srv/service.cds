@@ -29,3 +29,4 @@ service ServicoLivraria {
     entity LivroStatus as projection on db.LivroStatus;
     entity GenerosVH   as projection on db.Generos;
 }
+annotate ServicoLivraria.Autores with @requires: 'admin'

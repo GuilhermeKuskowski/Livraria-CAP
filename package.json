@@ -19,15 +19,26 @@
   },
   "private": true,
   "cds": {
-    "requires": {
-      "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "url": "db.sqlite"
+  "requires": {
+    "db": {
+      "kind": "sqlite",
+      "credentials": {
+        "url": "db.sqlite"
+      }
+    },
+    "auth": {
+      "kind": "mocked",
+      "users": {
+        "Guilherme": {
+          "password": "admin",
+          "roles": [
+            "admin"
+          ]
         }
       }
     }
-  },
+  }
+},
   "workspaces": [
     "app/*"
   ],
