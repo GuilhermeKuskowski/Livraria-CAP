@@ -1,0 +1,177 @@
+{
+	"_version": "1.89.0",
+	"sap.app": {
+		"id": "autoreslistview",
+		"type": "application",
+		"i18n": {
+			"bundleUrl": "i18n/i18n.properties",
+			"supportedLocales": [
+				""
+			]
+		},
+		"applicationVersion": {
+			"version": "0.0.1"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"sourceTemplate": {
+			"id": "@sap/generator-fiori:lrop",
+			"version": "1.33.0",
+			"toolsId": "be995ba6-2937-4880-8392-a746949f9737"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/odata/v4/servico-livraria/",
+				"type": "OData",
+				"settings": {
+					"annotations": [],
+					"odataVersion": "4.0"
+				}
+			}
+		},
+		"crossNavigation": {
+			"inbounds": {
+				"livraria-listview-display": {
+					"semanticObject": "livraria-listview",
+					"action": "display",
+					"signature": {
+						"parameters": {},
+						"additionalParameters": "allowed"
+					}
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": true,
+		"dependencies": {
+			"minUI5Version": "1.153.0",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.fe.templates": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "autoreslistview.i18n.i18n",
+					"supportedLocales": [
+						""
+					]
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"operationMode": "Server",
+					"autoExpandSelect": true,
+					"earlyRequests": true
+				}
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties",
+				"settings": {
+					"supportedLocales": [
+						""
+					]
+				}
+			}
+		},
+		"resources": {
+			"css": []
+		},
+		"routing": {
+			"config": {},
+			"routes": [
+				{
+					"pattern": ":?query:",
+					"name": "AutoresList",
+					"target": "AutoresList"
+				},
+				{
+					"pattern": "Autores({key}):?query:",
+					"name": "AutoresObjectPage",
+					"target": "AutoresObjectPage"
+				}
+			],
+			"targets": {
+				"AutoresList": {
+					"type": "Component",
+					"id": "AutoresList",
+					"name": "sap.fe.templates.ListReport",
+					"options": {
+						"settings": {
+							"contextPath": "/Autores",
+							"variantManagement": "Page",
+							"navigation": {
+								"Autores": {
+									"detail": {
+										"route": "AutoresObjectPage"
+									}
+								}
+							},
+							"controlConfiguration": {
+								"@com.sap.vocabularies.UI.v1.LineItem": {
+									"tableSettings": {
+										"type": "ResponsiveTable"
+									}
+								}
+							},
+							"initialLoad": "Enabled"
+						}
+					}
+				},
+				"AutoresObjectPage": {
+					"type": "Component",
+					"id": "AutoresObjectPage",
+					"name": "sap.fe.templates.ObjectPage",
+					"options": {
+						"settings": {
+							"editableHeaderContent": false,
+							"contextPath": "/Autores"
+						}
+					}
+				}
+			}
+		},
+		"flexBundle": false
+	},
+	"sap.fiori": {
+		"registrationIds": [],
+		"archeType": "transactional"
+	},
+	"sap.fe": {
+		"app": {
+			"enableLazyLoading": true
+		}
+	},
+	"sap.cloud": {
+		"public": true,
+		"service": "Livraria.service"
+	}
+}

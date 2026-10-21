@@ -1,11 +1,11 @@
-import { Autores } from '#cds-models/ServicoLivraria'
 import cds from '@sap/cds'
 import { SELECT, UPDATE } from '@sap/cds/lib/ql/cds-ql.js'
 
 export class ServicoLivraria extends cds.ApplicationService {
   init() {
 
-    const { Livros } = cds.entities('ServicoLivraria')
+    
+    const { Livros, Autores } = cds.entities('ServicoLivraria')
 
     this.on('addDesconto', async () => {
       await UPDATE(Livros).set({

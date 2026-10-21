@@ -3,7 +3,6 @@ using {
     managed,
     sap.common.Currencies
 } from '@sap/cds/common';
-using {Attachments} from '@cap-js/attachments';
 
 namespace db;
 
@@ -56,7 +55,6 @@ entity Autores : cuid, managed {
                                              @Core.AcceptableMediaTypes       : ['application/pdf']
                                              @Core.ContentDisposition.Filename: nomeDoArquivo;
     virtual quantidadeDeLivro : Integer;
-    attachments                : Composition of many Attachments;
     livros                     : Association to many Livros
                                      on livros.autor = $self;
 }
