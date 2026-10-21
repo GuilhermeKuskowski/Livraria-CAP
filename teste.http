@@ -1,0 +1,18 @@
+GET http://localhost:4070/odata/v4/servico-livraria/$metadata
+###
+GET http://localhost:4070/odata/v4/servico-livraria/Capitulos
+###
+GET http://localhost:4070/odata/v4/servico-livraria/Livros
+Authorization: Basic R3VpbGhlcm1lOmFkbWlu
+###
+GET http://localhost:4070/odata/v4/servico-livraria/Livros?$count=true
+Authorization: Basic R3VpbGhlcm1lOmFkbWlu
+###
+POST http://localhost:4070/odata/v4/servico-livraria/Livros
+Authorization: Basic R3VpbGhlcm1lOmFkbWlu
+Content-Type: application/json
+
+{
+    "ID" : "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "titulo" : "O Mundo de Sofia"
+}
